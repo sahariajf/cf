@@ -1,32 +1,25 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-int main ()
+int main()
 {
-    int n;
+    int n, a, index[100001];
     cin >> n;
-    vector<int> a;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; ++i)
     {
-        int x;
-        cin >> x;
-        a.push_back(x);
-        }
-    int q;
-    cin >> q;
-    int ans1(0),ans2(0);
-    for (int i = 0; i < q; i++)
-    {
-        int p;
-        cin >> p;
-        int cnt(0);
-        for(int j=0;j<n;j++)
-        {
-            if (a[j] == p)
-            cnt=j+1;
-        }
-        ans1+=cnt;
-        ans2+=n-cnt+1;  
+        cin >> a;
+        index[a] = i; // store the index of each number (vice versa)
     }
-    cout << ans1 << " " << ans2 << endl;
+
+    int m, b;
+    cin >> m;
+    long long Vasya = 0, Petya = 0;
+    while (m--)
+    {
+        cin >> b;
+        Vasya += index[b];
+        Petya += (n + 1 - index[b]);
+    }
+    cout << Vasya << " " << Petya << endl;
+    return 0;
 }
