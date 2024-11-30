@@ -1,22 +1,23 @@
-#include <bits/stdc++.h>
+#include<iostream>
+
 using namespace std;
 
-int main()
-{
-    string s;
-    cin >> s;
-    int cnt(0);
-    for (int i = 0; i < s.size()-1; i++)
-    {
-        if (cnt > 6)
-        {
-            cout << "YES" ;
-            break;
+int main(){
+    string s1;
+    cin>>s1;
+    int condition = 1;
+    for(int i=1; i<=s1.length(); i++){
+        if(s1[i] == s1[i-1]){
+            condition++;
+            if(condition==7){
+                cout<<"YES"<<endl;
+                return 0;
+            }
+        }else{
+            condition=1;
         }
-        if (s[i] == s[i+1])
-            cnt++;
-        else
-            cnt = 1;
+        
     }
-    if (cnt <= 6) cout << "NO" ;
+    cout<<"NO"<<endl;
+    return 0;
 }
